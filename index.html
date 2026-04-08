@@ -4,36 +4,96 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Android Auto Interface</title>
-    <!-- Use a modern Google Font like Roboto or Inter -->
+
+    <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Material Symbols for App Icons -->
+
+    <!-- Material Icons -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
     <style>
       :root {
         --bg-image: url('bg.jpg');
       }
+
+      body {
+        margin: 0;
+        font-family: 'Inter', sans-serif;
+        background: var(--bg-image) no-repeat center center/cover;
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      #android-auto-shell {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100vh;
+        backdrop-filter: blur(5px); /* hafif premium efekt 😎 */
+      }
+
+      #main-content {
+        flex: 1;
+      }
+
+      /* TASKBAR */
+      #taskbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 15px;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(10px);
+      }
+
+      .nav-btn {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+      }
+
+      .taskbar-recent {
+        display: flex;
+        gap: 15px;
+      }
+
+      .taskbar-status {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: white;
+      }
+
+      .status-icons span {
+        font-size: 20px;
+      }
+
+      #clock {
+        font-size: 14px;
+      }
     </style>
+
     <script type="module" crossorigin src="./assets/index-Dik3EVAC.js"></script>
     <link rel="stylesheet" crossorigin href="./assets/index-BZS7w4O7.css">
   </head>
+
   <body>
-    <!-- The app shell -->
     <div id="android-auto-shell">
-      <!-- Main Content Area -->
+
       <main id="main-content">
-        <!-- Views will be dynamically injected here via JS -->
+        <!-- JS buraya içerik basacak -->
       </main>
 
-      <!-- Bottom Taskbar -->
       <nav id="taskbar">
-        <!-- App Launcher Button (Left side) -->
+
         <button id="btn-launcher" class="nav-btn" data-app="home">
-           <span class="material-symbols-rounded">radio_button_checked</span>
+          <span class="material-symbols-rounded">radio_button_checked</span>
         </button>
 
-        <!-- Recent/Quick Apps -->
         <div class="taskbar-recent" id="recent-apps">
           <button class="nav-btn" data-app="maps">
             <span class="material-symbols-rounded">map</span>
@@ -46,17 +106,15 @@
           </button>
         </div>
 
-        <!-- Status & Time (Right side) -->
         <div class="taskbar-status">
           <div class="status-icons">
-             <span class="material-symbols-rounded">lte_mobiledata</span>
-             <span class="material-symbols-rounded">battery_5_bar</span>
+            <span class="material-symbols-rounded">lte_mobiledata</span>
+            <span class="material-symbols-rounded">battery_5_bar</span>
           </div>
           <div id="clock">10:00</div>
         </div>
+
       </nav>
     </div>
-
-    <!-- App JavaScript Logic -->
   </body>
 </html>
